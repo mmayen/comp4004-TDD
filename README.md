@@ -1,4 +1,4 @@
-# comp4004-TDD
+# comp4004-Poker TDD
 An Application that:-
 
 First,inputs    the    5    cards    that    form    the    hand    AIP    is    trying    to    beat
