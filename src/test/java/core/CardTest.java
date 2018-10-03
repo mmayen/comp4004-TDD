@@ -21,4 +21,16 @@ public class CardTest extends TestCase {
 		
 		assertEquals(true, card.equals(new Card("C","7")));	 
     }
+	
+	public void testWhatSuit(){
+		Card card = new Card(0, 2);
+		
+		assertEquals("C", card.whatSuit(0));
+	}
+	
+	public void testWhatRank(){
+		Card card = new Card(0, 2);
+		
+		assertEquals("4", card.whatRank(2));
+	}
 }
