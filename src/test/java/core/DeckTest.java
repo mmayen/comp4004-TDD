@@ -1,5 +1,7 @@
 package core;
 
+import java.util.ArrayList;
+
 import junit.framework.TestCase;
 
 public class DeckTest extends TestCase {
@@ -20,8 +22,16 @@ public class DeckTest extends TestCase {
     }
 	
 	public void testRemoveHand(){
-		Deck deck = new Deck();
-		Hand hand = new Hand();
+		Deck deck = new Deck();//create deck
+		
+		ArrayList<Card> cards = new ArrayList<Card>();
+		cards.add(new Card("C","7"));
+		cards.add(new Card("S","K"));
+		cards.add(new Card("D","Q"));
+		cards.add(new Card("H","7"));
+		cards.add(new Card("C","A")); //create arraylist of cards
+		
+		Hand hand = new Hand(cards);//create hand of cards arraylist
 		
 		deck.removeHand(hand);
 		assertEquals(47, deck.cards.size());
