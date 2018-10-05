@@ -9,6 +9,7 @@ public class DeckTest extends TestCase {
         Card card = deck.drawCard();
        
         boolean result = true;
+        
         // ensure that the card we draw from deck is removed from deck
         for (int index = 0; index < deck.cards.size(); index++) {
             if(card.equals(deck.cards.get(index))) {
@@ -16,5 +17,13 @@ public class DeckTest extends TestCase {
             }
         }
         assertTrue(result);
+    }
+	
+	public void testRemoveHand(){
+		Deck deck = new Deck();
+		Hand hand = new Hand();
+		
+		deck.removeHand(hand);
+		assertEquals(47, deck.cards.size());
     }
 }
