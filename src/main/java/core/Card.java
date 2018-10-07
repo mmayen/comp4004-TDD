@@ -50,4 +50,8 @@ public class Card {
 	public String whatRank(Integer rank){
 		return ranks[rank];
 	}
+	
+	public void printCard(){
+		System.out.println(this.suit+""+this.rank);
+	}
 }
