@@ -35,7 +35,7 @@ public class HandTest extends TestCase {
 		 catch (IllegalArgumentException e) {
 			 result = true;
 			 }
-	        assertTrue(result);
+		assertTrue(result);
 	}
 	
 	public void testcalculateHand(){
@@ -43,7 +43,14 @@ public class HandTest extends TestCase {
 	}
 	
 	public void testmakeHandfromFile(){
-	
+		boolean result = true;
+		try {
+			Hand hand= new Hand("src/main/resources/SameSuit");
+			}
+		catch (IllegalArgumentException e) {
+			result = false;	
+		}
+		assertTrue(result);
 	}
 	
 	public void testIsRoyalFlush(){
