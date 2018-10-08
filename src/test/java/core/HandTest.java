@@ -42,6 +42,22 @@ public class HandTest extends TestCase {
 		
 	}
 	
+	public void testcountSameRank(){
+		Hand hand= new Hand("src/main/resources/SameRank");
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		
+		assertEquals(5, hand.countSameRank("6"));
+		assertEquals(1, hand1.countSameRank("10"));
+	}
+	
+	public void testcountSameSuit(){
+		Hand hand= new Hand("src/main/resources/SameSuit");
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		
+		assertEquals(5, hand.countSameSuit("C"));
+		assertEquals(0, hand1.countSameSuit("C"));
+	}
+	
 	public void testmakeHandfromFile(){
 		boolean result = true;
 		try {
@@ -54,11 +70,17 @@ public class HandTest extends TestCase {
 	}
 	
 	public void testIsRoyalFlush(){
-
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		assertTrue(hand1.isRoyalFlush());
+		assertFalse(hand2.isRoyalFlush());
 	}
 	
 	public void testIsStraightFlush(){
-
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		assertTrue(hand2.isStraightFlush());
+		assertFalse(hand1.isStraightFlush());
 	}
 	
 	public void testIsFullhouse(){
