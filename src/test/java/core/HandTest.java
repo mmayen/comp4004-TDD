@@ -129,19 +129,76 @@ public class HandTest extends TestCase {
 	}
 	
 	public void testIsThreeSequence(){
-
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		Hand hand3 = new Hand("src/main/resources/Straight");
+		Hand hand4 = new Hand("src/main/resources/ThreeSequence");
+		
+		assertTrue(hand4.ThreeInSequence());
+		assertFalse(hand1.ThreeInSequence());
+		assertFalse(hand2.ThreeInSequence());
+		assertFalse(hand3.ThreeInSequence());
 	}
 	
 	public void testIsFourOfARank(){
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		Hand hand3 = new Hand("src/main/resources/Straight");
+		Hand hand4 = new Hand("src/main/resources/ThreeSequence");
+		Hand hand5 = new Hand("src/main/resources/FourRank");
+		Hand hand6 = new Hand("src/main/resources/FiveRank");
+		Hand hand7 = new Hand("src/main/resources/ThreeRank");
 
+		assertTrue(hand5.FourRank());
+		assertFalse(hand1.FourRank());
+		assertFalse(hand2.FourRank());
+		assertFalse(hand3.FourRank());
+		assertFalse(hand4.FourRank());
+		assertFalse(hand6.FourRank());
+		assertFalse(hand7.FourRank());
 	}
 	
 	public void testIsThreeOfARank(){
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		Hand hand3 = new Hand("src/main/resources/Straight");
+		Hand hand4 = new Hand("src/main/resources/ThreeSequence");
+		Hand hand5 = new Hand("src/main/resources/FourRank");
+		Hand hand6 = new Hand("src/main/resources/FiveRank");
+		Hand hand7 = new Hand("src/main/resources/ThreeRank");
+		Hand hand8 = new Hand("src/main/resources/ThreeSuit");
+
+		assertTrue(hand7.ThreeRank());
+		assertFalse(hand1.ThreeRank());
+		assertFalse(hand2.ThreeRank());
+		assertFalse(hand3.ThreeRank());
+		assertFalse(hand4.ThreeRank());
+		assertFalse(hand5.ThreeRank());
+		assertFalse(hand4.ThreeRank());
+		assertFalse(hand6.ThreeRank());
+		assertFalse(hand8.ThreeRank());
 
 	}
 	
 	public void testIsThreeOfASuit(){
-
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		Hand hand3 = new Hand("src/main/resources/Straight");
+		Hand hand4 = new Hand("src/main/resources/ThreeSequence");
+		Hand hand5 = new Hand("src/main/resources/FourRank");
+		Hand hand6 = new Hand("src/main/resources/FiveRank");
+		Hand hand7 = new Hand("src/main/resources/ThreeRank");
+		Hand hand8 = new Hand("src/main/resources/ThreeSuit");
+		
+		assertTrue(hand8.hasThreeOfSameSuit());
+		assertFalse(hand1.hasThreeOfSameSuit());
+		assertFalse(hand2.hasThreeOfSameSuit());
+		assertFalse(hand3.hasThreeOfSameSuit());
+		assertFalse(hand4.hasThreeOfSameSuit());
+		assertFalse(hand5.hasThreeOfSameSuit());
+		assertFalse(hand4.hasThreeOfSameSuit());
+		assertFalse(hand6.hasThreeOfSameSuit());
+		assertFalse(hand7.hasThreeOfSameSuit());
 	}
 	
 	public void testIsTwoPairOfARank(){
