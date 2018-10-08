@@ -72,39 +72,88 @@ public class HandTest extends TestCase {
 	public void testIsRoyalFlush(){
 		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
 		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		Hand hand3 = new Hand("src/main/resources/Straight");
+		Hand hand4 = new Hand("src/main/resources/Flush");
+		
 		assertTrue(hand1.isRoyalFlush());
 		assertFalse(hand2.isRoyalFlush());
+		assertFalse(hand3.isRoyalFlush());
+		assertFalse(hand4.isRoyalFlush());
 	}
 	
 	public void testIsStraightFlush(){
 		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
 		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		Hand hand3 = new Hand("src/main/resources/Straight");
+		Hand hand4 = new Hand("src/main/resources/Flush");
+
+		
 		assertTrue(hand2.isStraightFlush());
 		assertFalse(hand1.isStraightFlush());
+		assertFalse(hand3.isStraightFlush());
+		assertFalse(hand4.isStraightFlush());
 	}
 	
 	public void testIsFullhouse(){
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		Hand hand3 = new Hand("src/main/resources/Fullhouse");
+		
+		assertTrue(hand3.isFullHouse());
+		assertFalse(hand1.isFullHouse());
+		assertFalse(hand2.isFullHouse());
+
 
 	}
 	
 	public void testIsFlush(){
-
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		Hand hand3 = new Hand("src/main/resources/Fullhouse");
+		Hand hand4 = new Hand("src/main/resources/Flush");
+		
+		assertTrue(hand4.Flush());
+		assertFalse(hand1.Flush());
+		assertFalse(hand2.Flush());
+		assertFalse(hand3.Flush());
 	}
 	
 	public void testIsStraight(){
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		Hand hand3 = new Hand("src/main/resources/Straight");
+
+		assertTrue(hand3.isStraight());
+		assertFalse(hand1.isStraight());
+		assertTrue(hand2.isStraight());
+	}
+	
+	public void testIsThreeSequence(){
 
 	}
 	
-	public void testIsFourOfAkind(){
+	public void testIsFourOfARank(){
 
 	}
 	
-	public void testIsThreeOfAkind(){
+	public void testIsThreeOfARank(){
 
 	}
 	
-	public void testIsTwoOfAkind(){
+	public void testIsThreeOfASuit(){
 
+	}
+	
+	public void testIsTwoPairOfARank(){
+
+	}
+	
+	public void testIsTwoOfARank(){
+
+	}
+	
+	public void testKeepTwo(){
+		
 	}
 
 }
