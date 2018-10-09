@@ -257,18 +257,18 @@ public class HandTest extends TestCase {
 		Hand hand10 = new Hand("src/main/resources/TwoRank");
 		Hand hand11 = new Hand("src/main/resources/OneAwayFromRoyalFlush");
 		
-		assertTrue(hand8.hasThreeOfSameSuit());
-		assertFalse(hand1.hasThreeOfSameSuit());
-		assertFalse(hand2.hasThreeOfSameSuit());
-		assertFalse(hand3.hasThreeOfSameSuit());
-		assertFalse(hand4.hasThreeOfSameSuit());
-		assertFalse(hand5.hasThreeOfSameSuit());
-		assertFalse(hand4.hasThreeOfSameSuit());
-		assertFalse(hand6.hasThreeOfSameSuit());
-		assertFalse(hand7.hasThreeOfSameSuit());
-		assertFalse(hand9.hasThreeOfSameSuit());
-		assertFalse(hand10.hasThreeOfSameSuit());
-		assertFalse(hand11.hasThreeOfSameSuit());
+		assertNotSame(-1, hand8.hasThreeOfSameSuit());
+		assertEquals(-1, hand1.hasThreeOfSameSuit());
+		assertEquals(-1, hand2.hasThreeOfSameSuit());
+		assertEquals(-1, hand3.hasThreeOfSameSuit());
+		assertEquals(-1, hand4.hasThreeOfSameSuit());
+		assertEquals(-1, hand5.hasThreeOfSameSuit());
+		assertEquals(-1, hand4.hasThreeOfSameSuit());
+		assertEquals(-1, hand6.hasThreeOfSameSuit());
+		assertEquals(-1, hand7.hasThreeOfSameSuit());
+		assertEquals(-1, hand9.hasThreeOfSameSuit());
+		assertEquals(-1, hand10.hasThreeOfSameSuit());
+		assertEquals(-1, hand11.hasThreeOfSameSuit());
 	}
 	
 	public void testIsTwoPairOfARank(){
