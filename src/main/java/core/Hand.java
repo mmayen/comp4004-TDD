@@ -68,4 +68,22 @@ public class Hand {
         }
         return count;
     }
+	
+	public boolean isRoyalFlush(){
+        boolean result= false;
+        
+        String[] royal = {"A", "K", "Q", "J", "10"};
+        
+        for (int x = 0; x < royal.length; x++) {
+            for (int y = 0; y < royal.length; y++) {
+                 if ( royal[x].equals(this.cards.get(y).getRank()) && (countSameSuit(this.cards.get(0).getSuit()) == 5) ) {
+                     result = true;
+                 }
+            }
+            if (!result) { 
+            	return false; 
+            }
+        }
+        return result;
+	}
 }
