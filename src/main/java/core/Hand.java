@@ -166,4 +166,16 @@ public class Hand {
         return false;
     }
 	
+    public boolean Flush() {
+		if(this.isStraightFlush() || this.isRoyalFlush()){
+			return false;
+		}
+		
+		for (int x = 0; x < this.cards.size()-1; x++) {
+			if ( countSameSuit(this.cards.get(x).getSuit()) == 5 ) {
+                return true;
+            }
+        }
+        return false;
+	}
 }
