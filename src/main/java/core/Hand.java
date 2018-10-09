@@ -86,4 +86,22 @@ public class Hand {
         }
         return result;
 	}
+	
+	public boolean isStraight() {
+		int[] order = new int[5];
+		boolean bool = true;
+		for (int x = 0; x < cards.size(); x++) {
+			for(int y = 0; y < Card.ranks.length; y++){
+				if(cards.get(x).getRank().equals(Card.ranks[y])){
+					order[x] = y;
+				}
+			}
+		}
+		for (int x = 0; x < (order.length-1); x++){
+			if(order[x+1] != (order[x] - 1)){
+				bool = false;
+			}
+		}		
+		return bool;
+	}
 }
