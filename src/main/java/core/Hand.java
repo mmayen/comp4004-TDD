@@ -34,4 +34,18 @@ public class Hand {
 			this.cards= tocards;
 		}
     }
+	
+	private String readFile(String url){
+		File file = new File(url); 
+		String hand = "";
+		try {
+			sc = new Scanner(file);
+			while (sc.hasNextLine()){
+				hand = sc.nextLine(); 
+			} 
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} 
+		return hand;
+	}
 }
