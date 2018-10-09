@@ -178,4 +178,30 @@ public class Hand {
         }
         return false;
 	}
+
+    public boolean ThreeInSequence() {
+		if(this.isStraightFlush() || this.isStraight()){
+			return false;
+		}
+		
+		else{
+			int[] order = new int[5];
+			
+			for (int x = 0; x < cards.size(); x++) {
+				for(int y = 0; y < Card.ranks.length; y++){
+					if(cards.get(x).rank.equals(Card.ranks[y])){
+						order[x] = y; //for each card in Hand save the position of its rank according to rank-order array in Card class
+					}
+				}
+			}
+			
+			for (int x = 0; x < 3; x++) {
+	            if ( ((order[x]) == (order[x+1] + 1)) &&  ((order[x+1]) == (order[x+2] + 1)) ) {
+	                return true;
+	            }
+	        }	
+		}
+		return false;
+	}
 }
+
