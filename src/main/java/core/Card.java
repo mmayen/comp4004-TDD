@@ -51,7 +51,33 @@ public class Card {
 		return ranks[rank];
 	}
 	
+	public int CheckSuit(String suit) {
+        for (int x = 0; x < suits.length; x++) {
+            if(suits[x].equals(suit)) {
+                return x;
+            }
+        }
+        return -1;
+    }
+
+    public int CheckRank(String rank) {
+        for (int x = 0; x < ranks.length; x++) {
+            if(ranks[x].equals(rank)) {
+                return x;
+            }
+        }
+        return -1;
+    }
+    
+    public boolean Higherthan(Card c) {
+        if ( (CheckRank(this.rank)>CheckRank(c.rank)) || (this.rank.equals(c.rank) && (CheckSuit(this.suit) > CheckSuit(c.suit)) ) ) {
+            return true;
+        }
+        return false;
+    }
+
+	
 	public void printCard(){
-		System.out.println(this.suit+""+this.rank);
+		System.out.print(this.suit+""+this.rank+ " ");
 	}
 }
