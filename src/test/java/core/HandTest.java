@@ -98,12 +98,29 @@ public class HandTest extends TestCase {
 		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
 		Hand hand2 = new Hand("src/main/resources/StraightFlush");
 		Hand hand3 = new Hand("src/main/resources/Fullhouse");
+		Hand hand4 = new Hand("src/main/resources/ThreeSequence");
+		Hand hand5 = new Hand("src/main/resources/FourRank");
+		Hand hand6 = new Hand("src/main/resources/FiveRank");
+		Hand hand7 = new Hand("src/main/resources/ThreeRank");
+		Hand hand8 = new Hand("src/main/resources/ThreeSuit");
+		Hand hand9 = new Hand("src/main/resources/TwoPairRank");
+		Hand hand10 = new Hand("src/main/resources/TwoRank");
+		Hand hand11 = new Hand("src/main/resources/OneAwayFromRoyalFlush");
+		Hand hand12 = new Hand("src/main/resources/Flush");
+
 		
 		assertTrue(hand3.isFullHouse());
 		assertFalse(hand1.isFullHouse());
 		assertFalse(hand2.isFullHouse());
-
-
+		assertFalse(hand4.isFullHouse());
+		assertFalse(hand5.isFullHouse());
+		assertFalse(hand6.isFullHouse());
+		assertFalse(hand7.isFullHouse());
+		assertFalse(hand8.isFullHouse());
+		assertFalse(hand9.isFullHouse());
+		assertFalse(hand10.isFullHouse());
+		assertFalse(hand11.isFullHouse());
+		assertFalse(hand12.isFullHouse());
 	}
 	
 	public void testIsFlush(){
@@ -122,10 +139,29 @@ public class HandTest extends TestCase {
 		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
 		Hand hand2 = new Hand("src/main/resources/StraightFlush");
 		Hand hand3 = new Hand("src/main/resources/Straight");
+		Hand hand4 = new Hand("src/main/resources/ThreeSequence");
+		Hand hand5 = new Hand("src/main/resources/FourRank");
+		Hand hand6 = new Hand("src/main/resources/FiveRank");
+		Hand hand7 = new Hand("src/main/resources/ThreeRank");
+		Hand hand8 = new Hand("src/main/resources/ThreeSuit");
+		Hand hand9 = new Hand("src/main/resources/TwoPairRank");
+		Hand hand10 = new Hand("src/main/resources/TwoRank");
+		Hand hand11 = new Hand("src/main/resources/OneAwayFromRoyalFlush");
+		Hand hand12 = new Hand("src/main/resources/Flush");
+
 
 		assertTrue(hand3.isStraight());
 		assertFalse(hand1.isStraight());
 		assertTrue(hand2.isStraight());
+		assertFalse(hand4.isStraight());
+		assertFalse(hand5.isStraight());
+		assertFalse(hand6.isStraight());
+		assertFalse(hand7.isStraight());
+		assertFalse(hand8.isStraight());
+		assertFalse(hand9.isStraight());
+		assertFalse(hand10.isStraight());
+		assertFalse(hand11.isStraight());
+		assertFalse(hand12.isStraight());
 	}
 	
 	public void testIsThreeSequence(){
@@ -133,11 +169,27 @@ public class HandTest extends TestCase {
 		Hand hand2 = new Hand("src/main/resources/StraightFlush");
 		Hand hand3 = new Hand("src/main/resources/Straight");
 		Hand hand4 = new Hand("src/main/resources/ThreeSequence");
+		Hand hand5 = new Hand("src/main/resources/FourRank");
+		Hand hand6 = new Hand("src/main/resources/FiveRank");
+		Hand hand7 = new Hand("src/main/resources/ThreeRank");
+		Hand hand8 = new Hand("src/main/resources/ThreeSuit");
+		Hand hand9 = new Hand("src/main/resources/TwoPairRank");
+		Hand hand10 = new Hand("src/main/resources/TwoRank");
+		Hand hand11 = new Hand("src/main/resources/OneAwayFromRoyalFlush");
+		Hand hand12 = new Hand("src/main/resources/Flush");
 		
 		assertTrue(hand4.ThreeInSequence());
 		assertFalse(hand1.ThreeInSequence());
 		assertFalse(hand2.ThreeInSequence());
 		assertFalse(hand3.ThreeInSequence());
+		assertFalse(hand5.ThreeInSequence());
+		assertFalse(hand6.ThreeInSequence());
+		assertFalse(hand7.ThreeInSequence());
+		assertFalse(hand8.ThreeInSequence());
+		assertFalse(hand9.ThreeInSequence());
+		assertFalse(hand10.ThreeInSequence());
+		assertFalse(hand11.ThreeInSequence());
+		assertFalse(hand12.ThreeInSequence());
 	}
 	
 	public void testIsFourOfARank(){
@@ -148,6 +200,11 @@ public class HandTest extends TestCase {
 		Hand hand5 = new Hand("src/main/resources/FourRank");
 		Hand hand6 = new Hand("src/main/resources/FiveRank");
 		Hand hand7 = new Hand("src/main/resources/ThreeRank");
+		Hand hand8 = new Hand("src/main/resources/ThreeSuit");
+		Hand hand9 = new Hand("src/main/resources/TwoPairRank");
+		Hand hand10 = new Hand("src/main/resources/TwoRank");
+		Hand hand11 = new Hand("src/main/resources/OneAwayFromRoyalFlush");
+		Hand hand12 = new Hand("src/main/resources/Flush");
 
 		assertTrue(hand5.FourRank());
 		assertFalse(hand1.FourRank());
@@ -156,6 +213,11 @@ public class HandTest extends TestCase {
 		assertFalse(hand4.FourRank());
 		assertFalse(hand6.FourRank());
 		assertFalse(hand7.FourRank());
+		assertFalse(hand8.FourRank());
+		assertFalse(hand9.FourRank());
+		assertFalse(hand10.FourRank());
+		assertFalse(hand11.FourRank());
+		assertFalse(hand12.FourRank());
 	}
 	
 	public void testIsThreeOfARank(){
@@ -252,7 +314,7 @@ public class HandTest extends TestCase {
 		assertFalse(hand1.TwoRank());
 		assertFalse(hand2.TwoRank());
 		assertFalse(hand3.TwoRank());
-		assertTrue(hand4.TwoRank());//my textfile also has twoSameranks
+		assertTrue(hand4.TwoRank());//my textfile also has two Sameranks
 		assertFalse(hand5.TwoRank());
 		assertFalse(hand6.TwoRank());
 		assertFalse(hand7.TwoRank());
@@ -281,10 +343,14 @@ public class HandTest extends TestCase {
 		assertEquals(-1, hand11.OneAwayFrom());
 		assertEquals(-1, hand3.OneAwayFrom());
 		assertEquals(-1, hand4.OneAwayFrom());
-		assertNotSame(-1, hand5.OneAwayFrom());
+		assertEquals(-1, hand5.OneAwayFrom());
 		assertEquals(-1, hand6.OneAwayFrom());
-		assertNotSame(-1, hand7.OneAwayFrom());
+		assertEquals(-1, hand7.OneAwayFrom());
 		assertEquals(-1, hand8.OneAwayFrom());
+	}
+	
+	public void testChangeHand(){
+		
 	}
 
 }
