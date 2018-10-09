@@ -153,6 +153,17 @@ public class Hand {
     	
         return isNumberOfRank(2);
     }
-	
+    
+    public boolean isFullHouse() {
+        if(!this.ThreeRank()){
+        	return false;
+        }
+        else{
+        	if(this.TwoRank()){
+        		return true;
+        	}
+        }
+        return false;
+    }
 	
 }
