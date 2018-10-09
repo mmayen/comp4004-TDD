@@ -126,6 +126,15 @@ public class Hand {
     public boolean ThreeRank() {
         return isNumberOfRank(3);
     }
+    
+    public boolean hasThreeOfSameSuit() {
+        for (int x = 0; x < cards.size(); x++) {
+            if (countSameSuit(cards.get(x).suit) == 3) {
+                return true;
+            }
+        }
+        return false;
+    }
 	
 	
 }
