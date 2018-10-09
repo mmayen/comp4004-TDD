@@ -4,8 +4,8 @@ public class Card {
 	public String suit="";
 	public String rank="";
 	
-	private static final String[] suits = {"C", "D", "H", "S"};
-    private static final String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+	public static final String[] suits = {"C", "D", "H", "S"};
+    public static final String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
 
 	Card(String suit, String rank) {
 		this.suit= suit;
