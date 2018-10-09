@@ -48,4 +48,14 @@ public class Hand {
 		} 
 		return hand;
 	}
+	
+	public int countSameRank(String rank) {
+        int count = 0;
+        for (int x = 0; x < this.cards.size(); x++) {
+            if (this.cards.get(x).getRank().equals(rank)) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
