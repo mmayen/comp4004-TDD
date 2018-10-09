@@ -104,4 +104,9 @@ public class Hand {
 		}		
 		return bool;
 	}
+	
+	public boolean isStraightFlush() {
+		
+		return ( this.isStraight() && (countSameSuit(this.cards.get(0).getSuit()) == 5));
+	}
 }
