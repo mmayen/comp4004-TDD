@@ -58,4 +58,14 @@ public class Hand {
         }
         return count;
     }
+	
+	public int countSameSuit(String suit) {
+    	int count = 0;
+        for (int x = 0; x < this.cards.size(); x++) {
+            if (this.cards.get(x).getSuit().equals(suit)) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
