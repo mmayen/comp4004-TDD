@@ -38,10 +38,6 @@ public class HandTest extends TestCase {
 		assertTrue(result);
 	}
 	
-	public void testcalculateHand(){
-		
-	}
-	
 	public void testcountSameRank(){
 		Hand hand= new Hand("src/main/resources/SameRank");
 		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
@@ -335,8 +331,10 @@ public class HandTest extends TestCase {
 		Hand hand9 = new Hand("src/main/resources/OneAwayFromRoyalFlush");
 		Hand hand10 = new Hand("src/main/resources/Fullhouse");
 		Hand hand11 = new Hand("src/main/resources/Flush");
+		Hand hand12 = new Hand("src/main/resources/TwoPairRank");
 		
 		assertNotSame(-1, hand9.OneAwayFrom());
+		assertEquals(-1, hand12.OneAwayFrom());
 		assertEquals(-1, hand1.OneAwayFrom());
 		assertEquals(-1, hand2.OneAwayFrom());
 		assertEquals(-1, hand10.OneAwayFrom());
@@ -350,6 +348,18 @@ public class HandTest extends TestCase {
 	}
 	
 	public void testChangeHand(){
+		Hand hand1 = new Hand("src/main/resources/RoyalFlush");
+		Hand hand2 = new Hand("src/main/resources/StraightFlush");
+		Hand hand3 = new Hand("src/main/resources/Straight");
+		Hand hand4 = new Hand("src/main/resources/ThreeSequence");
+		Hand hand5 = new Hand("src/main/resources/FourRank");
+		Hand hand6 = new Hand("src/main/resources/FiveRank");
+		Hand hand7 = new Hand("src/main/resources/ThreeRank");
+		Hand hand8 = new Hand("src/main/resources/ThreeSuit");
+		Hand hand9 = new Hand("src/main/resources/OneAwayFromRoyalFlush");
+		Hand hand10 = new Hand("src/main/resources/Fullhouse");
+		Hand hand11 = new Hand("src/main/resources/Flush");
+		Hand hand12 = new Hand("src/main/resources/TwoPairRank");
 		
 	}
 
