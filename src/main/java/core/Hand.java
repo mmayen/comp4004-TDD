@@ -135,6 +135,24 @@ public class Hand {
         }
         return false;
     }
+    
+    public boolean TwopairRank() {
+    	int count = 0;
+    	for (int x = 0; x < cards.size(); x++) {
+            if (countSameRank(cards.get(x).getRank()) == 2) {
+            	count++;
+            }
+        }
+    	if(count == 4){return true; }
+
+    	return false;
+    }
+
+    public boolean TwoRank() {
+    	if(this.TwopairRank()) { return false; }
+    	
+        return isNumberOfRank(2);
+    }
 	
 	
 }
