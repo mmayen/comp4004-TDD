@@ -203,5 +203,35 @@ public class Hand {
 		}
 		return false;
 	}
+    
+    public int OneAwayFrom(){
+    	Deck deck = new Deck();
+        deck.removeHand(this);
+        
+        if(this.isRoyalFlush() || this.isFullHouse() || this.isStraightFlush() || this.Flush() || this.isStraight() ){
+		return -1;
+        }
+        
+        else{
+        	for (int x = 0; x < this.cards.size(); x++) {
+        		Hand hand = this;
+        		Card c = hand.cards.get(x);
+                for (int y = 0; y < deck.cards.size(); y++) {
+                	hand.cards.remove(c);//remove the first card in hand
+                    hand.cards.add(x, deck.cards.get(y));// add a card from the deck to that position
+                    if (hand.isStraight() || hand.Flush() || hand.isStraightFlush() || hand.isRoyalFlush()) {
+                    	//for each position of my hand if i add any new card from the deck 
+                    	//does my hand become straight, flush, straightFlush, royalflush ?
+                    	return x;
+                    }
+                    else{
+                    	hand.cards.remove(x);
+                    	hand.cards.add(x, c);
+                    }
+                }
+        	}
+        }
+        return -1;
+    }
 }
 
