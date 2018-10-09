@@ -109,4 +109,23 @@ public class Hand {
 		
 		return ( this.isStraight() && (countSameSuit(this.cards.get(0).getSuit()) == 5));
 	}
+	
+	public boolean isNumberOfRank(int n) {
+        for (int x = 0; x < cards.size(); x++) {
+            if (countSameRank(cards.get(x).rank) == n) {
+                return true;
+            }
+        }
+        return false;
+    }
+	
+	public boolean FourRank() {
+        return isNumberOfRank(4);
+    }
+
+    public boolean ThreeRank() {
+        return isNumberOfRank(3);
+    }
+	
+	
 }
