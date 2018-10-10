@@ -127,13 +127,13 @@ public class Hand {
         return isNumberOfRank(3);
     }
     
-    public boolean hasThreeOfSameSuit() {
+    public int hasThreeOfSameSuit() {
         for (int x = 0; x < cards.size(); x++) {
             if (countSameSuit(cards.get(x).suit) == 3) {
-                return true;
+                return x;
             }
         }
-        return false;
+        return -1;
     }
     
     public boolean TwopairRank() {
@@ -232,6 +232,77 @@ public class Hand {
         	}
         }
         return -1;
+    }
+   
+    public Hand changeHand(){
+    	Deck deck = new Deck();
+        deck.removeHand(this);
+        int pos;
+        // Don't improve if straight or better
+        if (this.isStraight() || this.Flush() || this.isFullHouse() || this.FourRank() || this.isRoyalFlush()) {
+        	System.out.print("Doing Nothing");
+        }
+        // if one card away from straight, full house, flush, royalflush, straightflush then exchange the card
+        else if(-1 != (pos= this.OneAwayFrom())){
+        	System.out.print("Removing: ");
+            this.cards.get(pos).printCard();
+        	this.cards.remove(pos);
+            
+            Card replacement = deck.drawCard();
+        	this.cards.add(pos, replacement);
+        	System.out.print("...Replacing with: ");
+            replacement.printCard();
+        }
+        else if(this.hasThreeOfSameSuit() != -1){
+        	int count = 0;
+        	for (int x = 0; x < this.cards.size(); x++) {
+                if (x != this.hasThreeOfSameSuit()) {
+                	System.out.print("Removing: ");
+                    this.cards.get(x).printCard();
+                	this.cards.remove(x);
+                	count++;
+                } 
+            }
+        	while(count!=0){
+        		Card replacement = deck.drawCard();
+                this.cards.add(0, replacement);
+                System.out.print("...Replacing with: ");
+                replacement.printCard();
+                count--;
+        	}
+        }
+        else if(this.ThreeRank()){
+        	
+        }
+        else if (ThreeInSequence()) {
+        	System.out.print("Removing: ");
+            this.cards.get(this.cards.size() - 1).printCard();
+            this.cards.get(this.cards.size() - 2).printCard();
+
+            this.cards.remove(this.cards.size() - 1);
+            this.cards.remove(this.cards.size() - 1);
+            this.cards.add(deck.drawCard());
+            this.cards.add(deck.drawCard());
+        	System.out.print("...Hand is now: ");
+        	this.print();
+        } 
+        else if(this.TwopairRank()){
+        	
+        }
+        else if(this.TwoRank()){
+        	
+        }
+        else{
+        	//keeps two highest cards
+        }
+        
+		return this;
+    }
+
+    public void print() {
+        for (int x = 0; x < this.cards.size(); x++) {
+            this.cards.get(x).printCard();
+        }
     }
 }
 
