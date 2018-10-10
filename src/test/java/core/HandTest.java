@@ -361,6 +361,8 @@ public class HandTest extends TestCase {
 		Hand hand11 = new Hand("src/main/resources/Flush");
 		Hand hand12 = new Hand("src/main/resources/TwoPairRank");
 		
+		hand8.changeHand();
+		
 	}
 
 }
