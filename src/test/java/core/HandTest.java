@@ -70,11 +70,31 @@ public class HandTest extends TestCase {
 		Hand hand2 = new Hand("src/main/resources/StraightFlush");
 		Hand hand3 = new Hand("src/main/resources/Straight");
 		Hand hand4 = new Hand("src/main/resources/Flush");
+		Hand hand12 = new Hand("src/main/resources/Fullhouse");
+		Hand hand13 = new Hand("src/main/resources/ThreeSequence");
+		Hand hand5 = new Hand("src/main/resources/FourRank");
+		Hand hand6 = new Hand("src/main/resources/FiveRank");
+		Hand hand7 = new Hand("src/main/resources/ThreeRank");
+		Hand hand8 = new Hand("src/main/resources/ThreeSuit");
+		Hand hand9 = new Hand("src/main/resources/TwoPairRank");
+		Hand hand10 = new Hand("src/main/resources/TwoRank");
+		Hand hand11 = new Hand("src/main/resources/OneAwayFromRoyalFlush");
 		
 		assertTrue(hand1.isRoyalFlush());
 		assertFalse(hand2.isRoyalFlush());
 		assertFalse(hand3.isRoyalFlush());
 		assertFalse(hand4.isRoyalFlush());
+		assertFalse(hand5.isRoyalFlush());
+		assertFalse(hand6.isRoyalFlush());
+		assertFalse(hand7.isRoyalFlush());
+		assertFalse(hand8.isRoyalFlush());
+		assertFalse(hand9.isRoyalFlush());
+		assertFalse(hand10.isRoyalFlush());
+		assertFalse(hand11.isRoyalFlush());
+		assertFalse(hand12.isRoyalFlush());
+		assertFalse(hand13.isRoyalFlush());
+
+
 	}
 	
 	public void testIsStraightFlush(){
@@ -82,12 +102,30 @@ public class HandTest extends TestCase {
 		Hand hand2 = new Hand("src/main/resources/StraightFlush");
 		Hand hand3 = new Hand("src/main/resources/Straight");
 		Hand hand4 = new Hand("src/main/resources/Flush");
+		Hand hand12 = new Hand("src/main/resources/Fullhouse");
+		Hand hand13 = new Hand("src/main/resources/ThreeSequence");
+		Hand hand5 = new Hand("src/main/resources/FourRank");
+		Hand hand6 = new Hand("src/main/resources/FiveRank");
+		Hand hand7 = new Hand("src/main/resources/ThreeRank");
+		Hand hand8 = new Hand("src/main/resources/ThreeSuit");
+		Hand hand9 = new Hand("src/main/resources/TwoPairRank");
+		Hand hand10 = new Hand("src/main/resources/TwoRank");
+		Hand hand11 = new Hand("src/main/resources/OneAwayFromRoyalFlush");
 
 		
 		assertTrue(hand2.isStraightFlush());
 		assertFalse(hand1.isStraightFlush());
 		assertFalse(hand3.isStraightFlush());
 		assertFalse(hand4.isStraightFlush());
+		assertFalse(hand5.isStraightFlush());
+		assertFalse(hand6.isStraightFlush());
+		assertFalse(hand7.isStraightFlush());
+		assertFalse(hand8.isStraightFlush());
+		assertFalse(hand9.isStraightFlush());
+		assertFalse(hand10.isStraightFlush());
+		assertFalse(hand11.isStraightFlush());
+		assertFalse(hand12.isStraightFlush());
+		assertFalse(hand13.isStraightFlush());
 	}
 	
 	public void testIsFullhouse(){
