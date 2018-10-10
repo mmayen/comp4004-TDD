@@ -2,6 +2,8 @@ package core;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -27,12 +29,10 @@ public class Hand {
             Card card = new Card(suit, rank);
             tocards.add(card);
         }
-		if (tocards.size() != 5) {
-            throw new IllegalArgumentException("A hand requires 5 cards. Cards from " + path + "are not 5 in total");
-        }
-		else{
-			this.cards= tocards;
-		}
+		this.cards= tocards;
+    }
+	
+	Hand() {
     }
 	
 	private String readFile(String url){
@@ -40,14 +40,71 @@ public class Hand {
 		String hand = "";
 		try {
 			sc = new Scanner(file);
-			while (sc.hasNextLine()){
-				hand = sc.nextLine(); 
-			} 
+			hand = sc.nextLine(); 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} 
 		return hand;
 	}
+	public Hand[] handsFromInputFile(int line) {
+        return handsFromInputFile(line, "src/main/resources/inputfile");
+    }
+
+    public Hand[] handsFromInputFile(int line, String path) {
+        String fileContent = readFile(path);
+        System.out.println(fileContent);
+        //String theLine = fileContent.split("\\r?\\n")[line - 1];
+        ArrayList<Card> AICards = new ArrayList<Card>();
+        ArrayList<Card> userCards = new ArrayList<Card>();
+
+        String[] splitCards = fileContent.split(" ");
+
+        for (int x = 0; x < 5; x++) {
+           AICards.add(new Card(splitCards[x].substring(0,1), splitCards[x].substring(1)));
+        }
+
+        for (int x = 5; x < 10; x++) {
+            userCards.add(new Card(splitCards[x].substring(0,1), splitCards[x].substring(1)));
+        }
+
+        Hand[] hands = {new Hand(AICards), new Hand(userCards)};
+        return hands;
+    }
+
+
+    public static String readFileAsString(String fileName) throws Exception {
+        String data = "";
+        data = new String(Files.readAllBytes(Paths.get(fileName)));
+        return data;
+    }
+
+    public Hand[] handsFromFile(String path) {
+        try {
+            System.out.println("Reading file: " + path);
+            String fileContent = readFileAsString(path);
+            String[] cards = fileContent.split(" ");
+            ArrayList<Card> AICards = new ArrayList<Card>();
+            ArrayList<Card> userCards = new ArrayList<Card>();
+            System.out.println("Contents of file: " + fileContent);
+
+            for (int x = 0; x < 5; x++) {
+                AICards.add(new Card(cards[x].substring(0,1), cards[x].substring(1)));
+            }
+
+            for (int x = 5; x < 10; x++) {
+                userCards.add(new Card(cards[x].substring(0,1), cards[x].substring(1)));
+            }
+
+            Hand[] hands = {new Hand(AICards), new Hand(userCards)};
+            return hands;
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            Hand[] hands = {};
+            return hands;
+        }
+
+    }
 	
 	public int countSameRank(String rank) {
         int count = 0;
@@ -232,6 +289,26 @@ public class Hand {
         	}
         }
         return -1;
+    }
+    
+    public void sortByRank() {
+        ArrayList<Card> c = new ArrayList<Card>();
+        Card highestCard;
+        int highestIndex;
+        for (int x = 0; x < this.cards.size(); x++) {
+            highestCard = this.cards.get(x);
+            highestIndex = x;
+            for (int y = x; y < this.cards.size(); y++) {
+                if (highestCard.CheckRank(highestCard.rank) <= this.cards.get(y).CheckRank(this.cards.get(y).rank)) {
+                    Card copy = this.cards.get(y);
+                	highestCard = copy;
+                    highestIndex = y;
+                }
+            }
+            this.cards.remove(highestIndex);
+            this.cards.add(0, highestCard);
+        }
+
     }
    
     public Hand changeHand(){
